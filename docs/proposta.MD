@@ -19,7 +19,7 @@ Liste os integrantes do grupo.
 - Nome 1: Luiz Otávio Pereira Dos Santos. 
 - Nome 2: Iago Paiva Faria
 - Nome 3: Gustavo Eugênio Ferreira
-- Nome 4:
+- Nome 4:Luanna Rodrigues Campos 
 
 ## 3. Tipo de jogo
 
