@@ -184,7 +184,7 @@ Recursos previstos:
 
 Fontes de imagens 
 
-
+.
 
 ## 13. Principais dificuldades esperadas
 
