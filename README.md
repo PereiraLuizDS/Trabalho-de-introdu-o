@@ -22,43 +22,37 @@ Este repositório é um template para os grupos da disciplina. A proposta é com
 
 ## Descrição do jogo
 
-Descreva brevemente a ideia principal do jogo.
+O jogo consiste em controlar um sobrevivente em uma cidade tomada por zumbis. O jogador começa sozinho em uma área urbana abandonada e precisa tomar decisões para continuar vivo. A cada rodada, uma situação será apresentada, como procurar comida, explorar locais abandonados, fugir de zumbis ou descansar. Cada escolha altera atributos como vida, fome, energia, munição e pontuação.
 
-Exemplo:
-
-> O jogo consiste em controlar um personagem que deve coletar moedas e evitar obstáculos. O jogador ganha pontos ao coletar itens e perde vidas ao colidir com obstáculos. A partida termina quando o tempo acaba ou quando o jogador perde todas as vidas.
 
 ## Objetivo do jogador
 
-Explique o que o jogador precisa fazer para vencer ou avançar no jogo.
-
-Exemplo:
-
-> O objetivo é coletar a maior quantidade possível de itens antes que o tempo acabe, evitando colisões com os obstáculos.
+O objetivo do jogador é sobreviver por 7 dias na cidade, administrando seus recursos e evitando situações perigosas. Para vencer, o jogador precisa chegar ao final do 7º dia com a vida maior que zero, encontrando uma rota segura para sair da cidade.
 
 ## Regras do jogo
 
 Liste as principais regras do jogo.
 
-Exemplo:
-
-- O jogador se movimenta usando as setas do teclado.
-- Cada item coletado aumenta a pontuação.
-- Colidir com um obstáculo reduz a quantidade de vidas.
-- A partida termina quando o jogador perde todas as vidas ou quando o tempo acaba.
+- O jogo será no modo single player.
+- O jogador controla um único sobrevivente.
+- A cada rodada, uma situação será apresentada na tela.
+- O jogador deverá escolher uma entre três opções disponíveis.
+- Cada escolha pode alterar vida, fome, energia, munição e pontuação.
+- Escolhas boas podem aumentar a pontuação ou recuperar recursos.
+- Escolhas ruins podem reduzir vida, aumentar fome, gastar energia ou consumir munição.
+- A vida não pode chegar a zero.
+- O jogador vence se sobreviver até o 7º dia.
+- O jogador perde se a vida chegar a zero antes do final.
 
 ## Controles
 
 Informe as teclas ou comandos utilizados no jogo.
 
-Exemplo:
-
-- Seta para cima: mover para cima
-- Seta para baixo: mover para baixo
-- Seta para esquerda: mover para esquerda
-- Seta para direita: mover para direita
-- Espaço: realizar ação
-- ESC: sair do jogo
+- Mouse: clicar nos botões de escolha.
+- Tecla 1: selecionar a primeira opção.
+- Tecla 2: selecionar a segunda opção.
+- Tecla 3: selecionar a terceira opção.
+- ESC: sair do jogo.
 
 ## Como executar o projeto
 
