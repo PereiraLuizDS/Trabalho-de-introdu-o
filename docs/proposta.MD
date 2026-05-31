@@ -16,7 +16,7 @@ Exemplo:
 
 Liste os integrantes do grupo.
 
-- Nome 1:
+- Nome 1: Luiz Otávio Pereira Dos Santos. 
 - Nome 2:
 - Nome 3:
 - Nome 4:
