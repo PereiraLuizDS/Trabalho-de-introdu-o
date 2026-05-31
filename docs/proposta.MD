@@ -23,197 +23,155 @@ Liste os integrantes do grupo.
 
 ## 3. Tipo de jogo
 
-Indique o tipo de jogo que será desenvolvido.
-
-Exemplos:
-
-- jogo de desviar de obstáculos;
-- jogo de coleta de itens;
-- labirinto simples;
-- jogo de perguntas e respostas;
-- jogo de memória;
-- Pong;
-- Snake;
-- Breakout;
-- nave desviando de meteoros;
-- corrida simples com obstáculos;
-- jogo de clique rápido;
-- jogo de sobrevivência simples.
-
-Tipo escolhido pelo grupo:
-
-> Escreva aqui.
-
+Jogo de sobrevivência simples por escolhas, no modo *single player*.
 ## 4. Descrição geral do jogo
 
-Explique, em poucas linhas, como o jogo funcionará.
+O jogo será ambientado em uma cidade tomada por zumbis. O jogador controlará um único sobrevivente que começa sozinho em uma área urbana abandonada e precisa tomar decisões para continuar vivo durante vários dias.
 
-Procure responder:
+A cada rodada, uma situação será apresentada na tela. Essas situações podem envolver procurar comida, explorar prédios abandonados, fugir de zumbis, descansar, procurar munição ou escolher caminhos pela cidade.
 
-- O que aparece na tela?
-- O que o jogador controla?
-- O que o jogador precisa fazer?
-- Quais desafios aparecem durante a partida?
+O jogador deverá escolher uma entre três opções disponíveis. Cada escolha terá consequências nos atributos do personagem, como vida, fome, energia, munição e pontuação.
 
-Descrição:
-
-> Escreva aqui.
 
 ## 5. Objetivo do jogador
 
-Explique qual é o objetivo principal do jogador.
+O objetivo do jogador é sobreviver na cidade por uma quantidade determinada de dias, administrando seus recursos e evitando morrer para os perigos da cidade.
 
-Exemplos:
-
-- coletar o maior número possível de itens;
-- sobreviver pelo maior tempo possível;
-- chegar até o final do labirinto;
-- acertar alvos;
-- responder perguntas corretamente;
-- evitar obstáculos;
-- quebrar todos os blocos.
-
-Objetivo:
-
-> Escreva aqui.
+Inicialmente, o objetivo será sobreviver por *7 dias* até encontrar uma rota segura para sair da cidade.
 
 ## 6. Regras principais
-
-Liste as principais regras do jogo.
-
-Exemplo:
-
-- O jogador começa com 3 vidas.
-- Cada moeda coletada vale 10 pontos.
-- Cada colisão com obstáculo remove 1 vida.
-- A partida termina quando as vidas chegam a zero.
-- O jogador vence se alcançar 100 pontos.
-
-Regras do grupo:
-
-- Regra 1:
-- Regra 2:
-- Regra 3:
-- Regra 4:
-- Regra 5:
+- O jogo será single player.
+- O jogador controla um único sobrevivente.
+- O jogador começa com valores iniciais de vida, fome, energia, munição e pontuação.
+- A cada rodada, uma nova situação será apresentada.
+- O jogador deverá escolher uma entre três opções.
+- Cada escolha altera os atributos do jogador.
+- Algumas escolhas podem aumentar a pontuação ou fornecer recursos.
+- Escolhas perigosas podem reduzir vida, gastar energia, aumentar fome ou consumir munição.
+- O jogador precisa administrar seus recursos para continuar sobrevivendo.
+- O jogo avança conforme o jogador sobrevive aos eventos.
+- O jogador perde se sua vida chegar a zero.
+- O jogador vence se sobreviver até o último dia.
 
 ## 7. Condição de vitória
 
-Explique como o jogador vence ou conclui o jogo.
-
-Exemplos:
-
-- atingir determinada pontuação;
-- chegar ao final da fase;
-- sobreviver até o tempo acabar;
-- responder uma quantidade mínima de perguntas;
-- quebrar todos os blocos.
-
-Condição de vitória:
-
-> Escreva aqui.
+O jogador vence se conseguir sobreviver até o *7º dia* com a vida maior que zero, encontrando uma saída segura da cidade.
 
 ## 8. Condição de derrota ou encerramento
+O jogador perde se a vida chegar a zero.
 
-Explique como o jogador perde ou quando a partida termina.
-
-Exemplos:
-
-- perder todas as vidas;
-- acabar o tempo;
-- colidir com determinado obstáculo;
-- errar muitas perguntas;
-- deixar a bola cair, no caso de Breakout ou Pong.
-
-Condição de derrota ou encerramento:
-
-> Escreva aqui.
+Também poderá ocorrer o encerramento da partida caso o jogador complete todos os eventos planejados.
 
 ## 9. Elementos previstos no jogo
 
-Descreva os principais elementos que farão parte do jogo.
+- Um personagem principal controlado pelo jogador.
+- Cidade abandonada como cenário principal.
+- Eventos relacionados à sobrevivência urbana.
+- Zumbis como ameaça principal.
+- Opções de escolha para cada evento.
+- Recursos e atributos do jogador:
+  - Vida;
+  - Fome;
+  - Energia;
+  - Munição;
+  - Pontuação;
+  - Dia atual.
+- Locais da cidade, como:
+  - mercado;
+  - hospital;
+  - delegacia;
+  - rua abandonada;
+  - prédio;
+  - garagem.
+- Tela principal de jogo.
+- Tela de vitória.
+- Tela de derrota.
+- Sistema de recorde.
 
 ## Jogador ou elemento principal
 
-Exemplo:
+- Mouse, clicando nos botões de escolha;
+- Ou teclado, usando as teclas 1, 2 e 3 para selecionar uma opção.
 
-> Um personagem controlado pelas setas do teclado.
-
-Descrição:
-
-> Escreva aqui.
 
 ## Obstáculos, inimigos ou desafios
 
-Exemplo:
-
-> Obstáculos aparecem em posições aleatórias e devem ser evitados.
-
-Descrição:
-
-> Escreva aqui.
+O jogo conta com possivés doenças, Zumbis e perca de vida. 
 
 ## Itens, alvos ou objetos de interação
+Conquistas, Ranks, intens durande a sobrevivencia.
 
-Exemplo:
-
-> Moedas aparecem na tela e aumentam a pontuação quando coletadas.
-
-Descrição:
-
-> Escreva aqui.
 
 ## Pontuação, vidas, tempo ou progresso
 
-Exemplo:
-
-> O jogador começa com 3 vidas e ganha 10 pontos por item coletado.
-
-Descrição:
-
-> Escreva aqui.
+A pontução é baseada em pontuação por dia, quanto melhor for a sua escolhar melhor será suapontuação.
 
 ## 10. Controles previstos
 
-Informe os comandos que serão utilizados pelo jogador.
-
-Exemplo:
-
-- Seta para cima: mover para cima
-- Seta para baixo: mover para baixo
-- Seta para esquerda: mover para esquerda
-- Seta para direita: mover para direita
-- Espaço: realizar ação
-- ESC: sair do jogo
-
-Controles do grupo:
-
-- Tecla/comando:
-- Tecla/comando:
-- Tecla/comando:
+Escolhas baseadas em botoes ou teclas 1,2,3.
 
 ## 11. Organização inicial do código
 
-Explique como o grupo pretende organizar o código.
+E[14:46, 31/05/2026] +55 33 8800-5164: Serão utilizadas principalmente:
 
-Exemplo:
+- *Dicionários*, para armazenar os dados do jogador, como vida, fome, energia, munição, pontuação e dia.
+- *Listas*, para armazenar os eventos do jogo.
+- *Dicionários dentro de listas*, para representar cada evento e suas opções.
+- *Tuplas*, caso sejam utilizadas posições, cores ou tamanhos de elementos na tela.
 
-- `main.py`: inicia o jogo;
-- `src/jogo.py`: contém o loop principal;
-- `src/config.py`: guarda configurações como tamanho da tela e cores;
-- `src/funcoes.py`: contém funções auxiliares;
-- `src/dados.py`: contém funções de leitura e escrita de arquivos.
+Exemplo de estrutura prevista para o jogador:
+jogador = {
+    "vida": 100,
+    "fome": 0,
+    "energia": 100,
+    "municao": 3,
+    "pontuacao": 0,
+    "dia": 1
+}
+[14:48, 31/05/2026] +55 33 8800-5164: eventos = [
+    {
+        "descricao": "Você encontrou um mercado abandonado. Há barulhos estranhos vindo de dentro.",
+        "opcoes": [
+            {
+                "texto": "Entrar e procurar comida",
+                "vida": -10,
+                "fome": -20,
+                "energia": -10,
+                "municao": 0,
+                "pontuacao": 15
+            },
+            {
+                "texto": "Ignorar o mercado e continuar andando",
+                "vida": 0,
+                "fome": 10,
+                "energia": -5,
+                "municao": 0,
+                "pontuacao": 5
+            },
+            {
+                "texto": "Usar munição para afastar os zumbis e vasculhar o local",
+                "vida": 0,
+                "fome": -15,
+                "energia": -5,
+                "municao": -1,
+                "pontuacao": 20
+            }
+        ]
+    }
+]
+[14:48, 31/05/2026] +55 33 8800-5164: def aplicar_consequencia(jogador, escolha):
+    pass
 
-Organização planejada:
+def verificar_derrota(jogador):
+    pass
 
-> Escreva aqui.
+def verificar_vitoria(jogador):
+    pass
 
+def atualizar_recorde(pontuacao, recorde):
+    pass
 
 ## 12. Recursos externos previstos
-
-Informe se o grupo pretende utilizar imagens, sons, fontes, tutoriais ou códigos externos.
-
-Exemplo:
 
 - imagens obtidas de banco gratuito;
 - sons gratuitos;
@@ -224,63 +182,49 @@ Recursos previstos:
 
 > Escreva aqui.
 
-Caso não pretenda utilizar recursos externos, escreva:
+Fontes de imagens 
 
-> Não pretendemos utilizar recursos externos.
+
 
 ## 13. Principais dificuldades esperadas
 
-Liste as dificuldades que o grupo acredita que poderá enfrentar.
-
-Exemplos:
-
-- movimentação do jogador;
-- colisão entre objetos;
-- controle de tempo;
-- criação do ranking;
-- organização do código;
-- uso do GitHub;
-- testes;
-- exibição de textos na tela.
-
 Dificuldades previstas:
 
-- Dificuldade 1:
-- Dificuldade 2:
-- Dificuldade 3:
+- Dificuldade 1: Colocar pesos entre encolhas
+- Dificuldade 2: A animação mudando a cada dia. 
+- Dificuldade 3: Como vai funcionar os, atributos de fome e pontuação por escolhas.
 
 ## 14. Escopo mínimo para a entrega final
 
-Descreva qual será a versão mínima aceitável do jogo.
+Para a entrega final, o jogo deverá possuir no mínimo:
 
-Esta seção é importante para evitar que o grupo escolha uma ideia grande demais.
-
-Exemplo:
-
-> A versão mínima do jogo terá um personagem controlado pelo teclado, obstáculos aparecendo na tela, sistema de vidas, sistema de pontuação e tela de fim de jogo.
-
-Escopo mínimo:
-
-> Escreva aqui.
+Uma tela principal feita em Pygame.
+Modo single player.
+Um personagem principal representando o sobrevivente.
+Sistema de escolhas com pelo menos 3 opções por evento.
+Pelo menos 7 eventos, representando os 7 dias de sobrevivência.
+Tema de cidade tomada por zumbis.
+Atributos básicos do jogador:
+vida;
+fome;
+energia;
+munição;
+pontuação;
+dia atual.
+Exibição na tela das informações principais do jogador.
+Condição de vitória ao sobreviver até o 7º dia.
+Condição de derrota quando a vida chegar a zero.
+Uso de listas e dicionários para armazenar jogador, eventos e opções.
+Salvamento do maior recorde em um arquivo, como recorde.txt.
+Código organizado em funções.
+Arquivo README.md explicando o jogo e como executar.
+Testes simples para funções de lógica, como aplicação de consequências, vitória, derrota e atualização de recorde.
 
 ## 15. Possíveis melhorias, caso haja tempo
 
-Liste funcionalidades extras que o grupo poderá implementar se conseguir concluir o escopo mínimo.
-
-Exemplos:
-
-- tela inicial;
-- sons;
-- fases;
-- aumento de dificuldade;
-- ranking;
-- animações;
-- novos tipos de obstáculos;
-- diferentes personagens;
-- menu de pausa.
 
 Melhorias possíveis:
 
-- Melhoria 1:
-- Melhoria 2:
-- Melhoria 3:
+- Melhoria 1: Adicionar uma quantidade de opções para adicionar mais vertentes. 
+- Melhoria 2: Mudança de Skyn 
+- Melhoria 3: Trilha Sonora específicas. 
