@@ -112,8 +112,6 @@ Escolhas baseadas em botoes ou teclas 1,2,3.
 
 ## 11. Organização inicial do código
 
-E[14:46, 31/05/2026] +55 33 8800-5164: Serão utilizadas principalmente:
-
 - *Dicionários*, para armazenar os dados do jogador, como vida, fome, energia, munição, pontuação e dia.
 - *Listas*, para armazenar os eventos do jogo.
 - *Dicionários dentro de listas*, para representar cada evento e suas opções.
@@ -128,7 +126,7 @@ jogador = {
     "pontuacao": 0,
     "dia": 1
 }
-[14:48, 31/05/2026] +55 33 8800-5164: eventos = [
+ eventos = [
     {
         "descricao": "Você encontrou um mercado abandonado. Há barulhos estranhos vindo de dentro.",
         "opcoes": [
@@ -159,7 +157,7 @@ jogador = {
         ]
     }
 ]
-[14:48, 31/05/2026] +55 33 8800-5164: def aplicar_consequencia(jogador, escolha):
+def aplicar_consequencia(jogador, escolha):
     pass
 
 def verificar_derrota(jogador):
