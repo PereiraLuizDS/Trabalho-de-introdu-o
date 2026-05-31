@@ -126,7 +126,8 @@ jogador = {
     "pontuacao": 0,
     "dia": 1
 }
- eventos = [
+ 
+eventos = [
     {
         "descricao": "Você encontrou um mercado abandonado. Há barulhos estranhos vindo de dentro.",
         "opcoes": [
@@ -137,7 +138,7 @@ jogador = {
                 "energia": -10,
                 "municao": 0,
                 "pontuacao": 15
-            },
+            },\
             {
                 "texto": "Ignorar o mercado e continuar andando",
                 "vida": 0,
@@ -145,7 +146,7 @@ jogador = {
                 "energia": -5,
                 "municao": 0,
                 "pontuacao": 5
-            },
+            },\
             {
                 "texto": "Usar munição para afastar os zumbis e vasculhar o local",
                 "vida": 0,
@@ -157,6 +158,7 @@ jogador = {
         ]
     }
 ]
+\
 def aplicar_consequencia(jogador, escolha):
     pass
 
