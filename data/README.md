@@ -1,13 +1,18 @@
 # Dados
 
-Esta pasta guarda arquivos de persistencia simples em texto.
+Esta pasta guarda arquivos de persistência simples em texto utilizados pelo jogo **Seven Days of Fear**.
+
+Os arquivos desta pasta servem para armazenar informações que podem continuar existindo mesmo depois que o jogo é fechado, como recorde, ranking ou pontuações salvas.
 
 ## Arquivos
 
-- `recorde.txt`: melhor pontuacao registrada.
-- `ranking.txt`: base para ranking de jogadores (opcional neste template).
-- `README.txt`: arquivo legado; manter por compatibilidade se necessario.
+- `recorde.txt`: arquivo reservado para guardar a melhor pontuação registrada.
+- `ranking.txt`: arquivo reservado para armazenar uma base de ranking de jogadores.
+- `README.md`: documentação desta pasta e explicação sobre os arquivos de dados.
 
-## Observacao
+## Observação sobre o jogo atual
 
-Evite versionar dados pessoais reais dos jogadores.
+No código atual do jogo, a pontuação final é salva no arquivo:
+
+```text
+pontuacoes.txt
