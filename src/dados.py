@@ -1,19 +1,28 @@
-def salvar_recorde(caminho_arquivo, pontuacao):
-    """Salva a pontuação recorde em arquivo texto."""
-    with open(caminho_arquivo, "w", encoding="utf-8") as arquivo:
-        arquivo.write(str(pontuacao))
+# =========================
+# DADOS INICIAIS DO JOGO
+# =========================
 
+estado_inicial = {
+    "vida": 100,
+    "energia": 100,
+    "comida": 3,
+    "agua": 3,
+    "moral": 50,
+    "confianca": 0,
+    "municao": 0,
+}
 
-def carregar_recorde(caminho_arquivo):
-    """Carrega o recorde salvo; retorna 0 se não existir valor válido."""
-    try:
-        with open(caminho_arquivo, "r", encoding="utf-8") as arquivo:
-            conteudo = arquivo.read().strip()
+# Pontuação
+PONTOS_ESCOLHA_BOA = 75
+PONTOS_ESCOLHA_MEDIA = 50
+PONTOS_MORTE = 0
+PONTOS_DIA_CONCLUIDO = 100
 
-            if conteudo == "":
-                return 0
+# Arquivo de ranking
+ARQUIVO_PONTUACOES = "pontuacoes.txt"
+MAX_RANKING = 10
 
-            return int(conteudo)
-
-    except FileNotFoundError:
-        return 0
+# Observação:
+# O dicionário completo de cenas está atualmente no arquivo main.py,
+# pois o jogo principal ainda roda centralizado nele.
+# Futuramente, o dicionário "cenas" pode ser movido para este arquivo.
