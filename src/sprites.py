@@ -1,29 +1,45 @@
+import os
 import pygame
-            
-def pegar_sprite(local_arquivo, x, y, width, height, scale=1):
-    """Corta um único elemento de uma spritesheet BMP e remove o fundo."""
-    
-    # 1. Carrega o BMP e usa .convert() (sem alpha) para otimizar a velocidade
-    sheet = pygame.image.load(local_arquivo).convert()
 
-    # 2. Cria uma superfície padrão para o recorte (não precisa de SRCALPHA aqui)
-    image = pygame.Surface((width, height))
-    
-    # 3. Copia o pedaço da folha BMP para a nossa nova imagem
-    image.blit(sheet, (0, 0), (x, y, width, height))
-    
-    # 4. CONFIGURAÇÃO DA TRANSPARÊNCIA (O segredo para o BMP)
-    # Pegamos a cor do pixel no canto superior esquerdo (0,0) do recorte, 
-    # assumindo que o fundo do seu sprite começa ali.
-    cor_do_fundo = image.get_at((0, 0))
-    
-    # Dizemos ao Pygame para ignorar essa cor específica na hora de desenhar
-    image.set_colorkey(cor_do_fundo)
-    
-    # 5. Aplica o redimensionamento, se houver
-    if scale != 1:
-        novo_largura = int(width * scale)
-        novo_altura = int(height * scale)
-        image = pygame.transform.scale(image, (novo_largura, novo_altura))
-        
-    return image
+from .config import PASTA_ASSETS
+
+
+def caminho_imagem_da_cena(chave_cena, cena):
+    """Retorna o caminho da imagem configurada para uma cena."""
+    return cena.get("imagem", os.path.join(PASTA_ASSETS, f"{chave_cena}.png"))
+
+
+def carregar_imagem(chave_cena, cena, arquivo_base):
+    """Carrega a imagem de uma cena, se ela existir."""
+    caminho = caminho_imagem_da_cena(chave_cena, cena)
+
+    if not caminho:
+        return None, caminho
+
+    if not os.path.isabs(caminho):
+        caminho = os.path.join(os.path.dirname(os.path.abspath(arquivo_base)), caminho)
+
+    if not os.path.exists(caminho):
+        return None, caminho
+
+    try:
+        imagem = pygame.image.load(caminho).convert_alpha()
+        return imagem, caminho
+
+    except pygame.error:
+        return None, caminho
+
+
+def escalar_imagem_para_retangulo(imagem, retangulo):
+    """Redimensiona uma imagem mantendo a proporção para caber em um retângulo."""
+    escala = min(retangulo.width / imagem.get_width(), retangulo.height / imagem.get_height())
+
+    nova_largura = int(imagem.get_width() * escala)
+    nova_altura = int(imagem.get_height() * escala)
+
+    imagem = pygame.transform.smoothscale(imagem, (nova_largura, nova_altura))
+
+    x = retangulo.centerx - nova_largura // 2
+    y = retangulo.centery - nova_altura // 2
+
+    return imagem, x, y
