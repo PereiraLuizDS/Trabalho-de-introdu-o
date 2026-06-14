@@ -1,24 +1,21 @@
-"""
-Entrada alternativa para executar o jogo.
+# Código-fonte (`src`)
 
-O jogo principal está no arquivo main.py da raiz do projeto.
-Este arquivo permite iniciar o jogo a partir da pasta src sem duplicar a lógica.
-"""
+Esta pasta contém módulos de apoio do jogo **Seven Days of Fear**.
 
-from pathlib import Path
-import sys
+O jogo principal continua sendo executado pelo arquivo `main.py` da raiz do projeto, mas os arquivos desta pasta organizam partes importantes do código e servem como base para uma modularização maior.
 
+## Arquivos
 
-def executar():
-    raiz = Path(__file__).resolve().parents[1]
+- `__init__.py`: identifica a pasta como um pacote Python e guarda o nome do jogo.
+- `config.py`: contém as configurações principais, como tamanho da tela, FPS, cores, caminhos e retângulos da interface.
+- `dados.py`: contém o estado inicial do jogador, constantes de pontuação e informações persistentes do jogo.
+- `funcoes.py`: reúne funções auxiliares de regra e lógica, como pontuação, limites de status, validação de requisitos e leitura/gravação do ranking.
+- `sprites.py`: reúne funções relacionadas ao carregamento e ajuste de imagens das cenas.
+- `jogo.py`: permite executar o jogo chamando o `loop_principal()` definido em `main.py`.
 
-    if str(raiz) not in sys.path:
-        sys.path.insert(0, str(raiz))
+## Execução principal
 
-    from main import loop_principal
+Para rodar o jogo, use o arquivo principal da raiz:
 
-    loop_principal()
-
-
-if __name__ == "__main__":
-    executar()
+```bash
+python main.py
