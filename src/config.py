@@ -1,13 +1,33 @@
-# Configurações centrais do jogo (tela, cores e caminhos de arquivos).
-LARGURA_TELA = 800
-ALTURA_TELA = 600
+import pygame
+
+# =========================
+# CONFIGURAÇÕES GERAIS
+# =========================
+LARGURA = 1580
+ALTURA = 920
 FPS = 60
 
-TITULO_JOGO = "Projeto Final - Pygame"
+TITULO_JANELA = "Seven Days of Fear"
+PASTA_ASSETS = "assets"
 
-BRANCO = (255, 255, 255)
-PRETO = (0, 0, 0)
-CINZA = (212,212,212)
+# Cores
+BRANCO = (235, 235, 225)
+PRETO = (20, 20, 20)
+CINZA_ESCURO = (35, 35, 35)
+CINZA = (95, 95, 95)
+CINZA_CLARO = (170, 170, 170)
+VERDE = (42, 86, 62)
+VERDE_CLARO = (92, 130, 85)
+AZUL_CLARO = (92, 125, 150)
+VERMELHO_ESCURO = (105, 35, 35)
+AMARELO_CLARO = (220, 205, 135)
 
-CAMINHO_RECORDE = "data/recorde.txt"
-CAMINHO_SPRITES = "assets/imagens/spritesheet.bmp"
+# Layout
+MARGEM = 32
+STATUS_LARGURA = 330
+AREA_PRINCIPAL_LARGURA = LARGURA - STATUS_LARGURA - (MARGEM * 3)
+
+RET_IMAGEM = pygame.Rect(MARGEM, 82, AREA_PRINCIPAL_LARGURA, 315)
+RET_TEXTO = pygame.Rect(MARGEM, 412, AREA_PRINCIPAL_LARGURA, 120)
+RET_OPCOES = pygame.Rect(MARGEM, 550, AREA_PRINCIPAL_LARGURA, 220)
+RET_STATUS = pygame.Rect(MARGEM * 2 + AREA_PRINCIPAL_LARGURA, 82, STATUS_LARGURA, 688)
