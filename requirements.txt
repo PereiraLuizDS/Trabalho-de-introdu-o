@@ -1,2 +1,8 @@
+# Dependencias do jogo Seven Days of Fear
+# Instale com: pip install -r requirements.txt
+
+# Biblioteca principal para janela, eventos, imagens e renderizacao do jogo.
 pygame-ce>=2.5.0
+
+# Biblioteca usada para executar os testes automatizados da pasta tests/.
 pytest>=8.0.0
