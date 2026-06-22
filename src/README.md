@@ -1,18 +1,38 @@
-# Código-fonte (`src`)
+# Código-fonte auxiliar (`src`)
 
-Esta pasta contém os módulos principais do jogo **Seven Days of Fear**.
+Esta pasta contém módulos de apoio do jogo **Seven Days of Fear**.
 
-Os arquivos desta pasta organizam partes importantes do projeto, como configurações, dados, funções auxiliares, sprites e lógica principal do jogo.
+O arquivo principal da versão final continua sendo o `main.py`, localizado na raiz do projeto. Mesmo assim, os arquivos desta pasta ajudam a organizar constantes, dados, funções auxiliares, carregamento de imagens e uma entrada alternativa para execução.
+
+---
 
 ## Arquivos
 
-- `jogo.py`: contém o loop principal, tratamento de eventos, atualização da tela e renderização do jogo.
-- `config.py`: armazena constantes globais, como tamanho da tela, cores, caminhos de arquivos e FPS.
-- `funcoes.py`: reúne funções auxiliares de regra e lógica, como pontuação, controle de status, validações e ranking.
-- `sprites.py`: responsável pelo carregamento, organização e uso de imagens ou sprites do jogo.
-- `dados.py`: concentra a leitura e gravação de dados, como recorde, ranking e informações persistentes.
-- `__init__.py`: indica que a pasta pode ser usada como um pacote Python.
+- `__init__.py`: identifica a pasta como pacote Python e guarda informações gerais do jogo.
+- `config.py`: armazena configurações globais, como tamanho da tela, FPS, cores, caminhos de assets e retângulos da interface.
+- `dados.py`: guarda o estado inicial do jogador, constantes de pontuação e configurações do ranking.
+- `funcoes.py`: reúne funções auxiliares de lógica, como pontuação, limites de status, inventário, requisitos de escolhas e leitura/gravação do ranking.
+- `sprites.py`: concentra funções para localizar, carregar e redimensionar imagens das cenas.
+- `jogo.py`: permite executar o jogo chamando o `loop_principal()` existente no `main.py` da raiz.
 
-## Dica de evolução
+---
 
-Quando o projeto crescer, mantenha os módulos pequenos e separados por responsabilidade. Isso facilita a leitura, a manutenção e a evolução do jogo.
+## Execução principal
+
+Para executar o jogo, use o arquivo principal na raiz do projeto:
+
+```bash
+python main.py
+```
+
+Também é possível executar pela entrada auxiliar, caso a pasta esteja configurada como pacote:
+
+```bash
+python -m src.jogo
+```
+
+---
+
+## Observação
+
+A história completa e o dicionário de cenas permanecem no `main.py`, pois essa é a versão final jogável. Os módulos desta pasta servem como apoio para organização, testes e futuras melhorias de modularização.
