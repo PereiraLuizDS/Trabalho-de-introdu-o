@@ -1,3 +1,7 @@
+"""Configurações gerais do jogo Seven Days of Fear."""
+
+import os
+
 import pygame
 
 # =========================
@@ -8,9 +12,16 @@ ALTURA = 920
 FPS = 60
 
 TITULO_JANELA = "Seven Days of Fear"
-PASTA_ASSETS = "assets"
 
-# Cores
+# Caminhos principais
+# As imagens das cenas devem ficar preferencialmente em assets/imagens/.
+PASTA_ASSETS = os.path.join("assets", "imagens")
+PASTA_ASSETS_ALTERNATIVA = "assets"
+ARQUIVO_PONTUACOES = "pontuacoes.txt"
+
+# =========================
+# CORES
+# =========================
 BRANCO = (235, 235, 225)
 PRETO = (20, 20, 20)
 CINZA_ESCURO = (35, 35, 35)
@@ -22,7 +33,9 @@ AZUL_CLARO = (92, 125, 150)
 VERMELHO_ESCURO = (105, 35, 35)
 AMARELO_CLARO = (220, 205, 135)
 
-# Layout
+# =========================
+# LAYOUT
+# =========================
 MARGEM = 32
 STATUS_LARGURA = 330
 AREA_PRINCIPAL_LARGURA = LARGURA - STATUS_LARGURA - (MARGEM * 3)
@@ -30,4 +43,9 @@ AREA_PRINCIPAL_LARGURA = LARGURA - STATUS_LARGURA - (MARGEM * 3)
 RET_IMAGEM = pygame.Rect(MARGEM, 82, AREA_PRINCIPAL_LARGURA, 315)
 RET_TEXTO = pygame.Rect(MARGEM, 412, AREA_PRINCIPAL_LARGURA, 120)
 RET_OPCOES = pygame.Rect(MARGEM, 550, AREA_PRINCIPAL_LARGURA, 220)
-RET_STATUS = pygame.Rect(MARGEM * 2 + AREA_PRINCIPAL_LARGURA, 82, STATUS_LARGURA, 688)
+RET_STATUS = pygame.Rect(
+    MARGEM * 2 + AREA_PRINCIPAL_LARGURA,
+    82,
+    STATUS_LARGURA,
+    ALTURA - 114,
+)
