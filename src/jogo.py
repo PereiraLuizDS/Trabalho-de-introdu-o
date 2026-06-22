@@ -1,21 +1,46 @@
-# Código-fonte (`src`)
+"""Entrada alternativa para executar Seven Days of Fear.
 
-Esta pasta contém módulos de apoio do jogo **Seven Days of Fear**.
+O jogo final continua centralizado no arquivo ``main.py`` localizado na raiz
+do projeto. Este módulo permite executar o mesmo jogo a partir do pacote de
+apoio, mantendo a organização da pasta ``src``.
+"""
 
-O jogo principal continua sendo executado pelo arquivo `main.py` da raiz do projeto, mas os arquivos desta pasta organizam partes importantes do código e servem como base para uma modularização maior.
+import importlib
+import sys
+from pathlib import Path
 
-## Arquivos
 
-- `__init__.py`: identifica a pasta como um pacote Python e guarda o nome do jogo.
-- `config.py`: contém as configurações principais, como tamanho da tela, FPS, cores, caminhos e retângulos da interface.
-- `dados.py`: contém o estado inicial do jogador, constantes de pontuação e informações persistentes do jogo.
-- `funcoes.py`: reúne funções auxiliares de regra e lógica, como pontuação, limites de status, validação de requisitos e leitura/gravação do ranking.
-- `sprites.py`: reúne funções relacionadas ao carregamento e ajuste de imagens das cenas.
-- `jogo.py`: permite executar o jogo chamando o `loop_principal()` definido em `main.py`.
+def caminho_raiz_projeto():
+    """Retorna a pasta raiz do projeto considerando que este arquivo fica em src/."""
+    return Path(__file__).resolve().parents[1]
 
-## Execução principal
 
-Para rodar o jogo, use o arquivo principal da raiz:
+def preparar_importacao_main():
+    """Garante que a raiz do projeto esteja disponível no sys.path."""
+    raiz = caminho_raiz_projeto()
+    raiz_texto = str(raiz)
 
-```bash
-python main.py
+    if raiz_texto not in sys.path:
+        sys.path.insert(0, raiz_texto)
+
+    return raiz
+
+
+def carregar_main():
+    """Importa e devolve o módulo main.py da raiz do projeto."""
+    preparar_importacao_main()
+    return importlib.import_module("main")
+
+
+def executar():
+    """Executa o loop principal do jogo."""
+    modulo_main = carregar_main()
+
+    if not hasattr(modulo_main, "loop_principal"):
+        raise AttributeError("O arquivo main.py precisa possuir a função loop_principal().")
+
+    modulo_main.loop_principal()
+
+
+if __name__ == "__main__":
+    executar()
