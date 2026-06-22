@@ -2,35 +2,32 @@
 
 Projeto final da disciplina de Introdução a Algoritmos/Programação, desenvolvido com **Python** e **Pygame**.
 
-Seven Days of Fear é um jogo narrativo de sobrevivência em um apocalipse zumbi. O jogador assume o papel de um sobrevivente e precisa tomar decisões durante 7 dias, administrando recursos, evitando riscos e buscando uma forma de escapar da cidade.
+**Seven Days of Fear** é um jogo narrativo de sobrevivência ambientado em uma cidade tomada por um apocalipse zumbi. O jogador assume o papel de um sobrevivente e precisa tomar decisões ao longo de **7 dias**, administrando recursos, coletando itens, enfrentando riscos e buscando uma forma de chegar até uma zona segura.
+
+---
 
 ## Integrantes do grupo
 
-- Luiz Otávio Pereira Dos Santos
+- Luiz Otávio Pereira dos Santos
 - Iago Paiva Faria
 - Gustavo Eugênio Ferreira
 - Luanna Rodrigues Campos
 
-## Estrutura do projeto
-
-- `main.py`: arquivo principal do jogo. É por ele que o jogo deve ser executado.
-- `assets/`: pasta usada para guardar as imagens das cenas do jogo.
-- `pontuacoes.txt`: arquivo onde são salvas as pontuações/ranking dos jogadores.
-- `README.md`: documentação do projeto.
-- `requirements.txt`: lista de dependências necessárias para executar o jogo.
-- `test_jogo_semana3.py`: primeira versão dos testes automatizados do projeto.
+---
 
 ## Descrição do jogo
 
-**Seven Days of Fear** é um jogo narrativo em que o jogador acompanha a jornada de um sobrevivente em uma cidade tomada por zumbis.
+**Seven Days of Fear** é um jogo de escolhas em que cada decisão altera o rumo da história.
 
-A cada cena, o jogador recebe uma situação e precisa escolher uma ação. Cada escolha pode levar a uma nova cena, alterar os status do personagem, adicionar itens ao inventário, aumentar a pontuação ou causar uma derrota imediata.
+O jogador acorda sozinho em um apartamento durante o início de um colapso urbano. A partir desse momento, precisa escolher como agir para sobreviver: fugir, ajudar outros moradores, procurar suprimentos, enfrentar ameaças, confiar em desconhecidos ou seguir sozinho.
 
-Durante a jornada, o jogador pode encontrar aliados, coletar recursos, descobrir informações sobre a origem da infecção e escolher diferentes caminhos até chegar ao 7º dia. No final, existem diferentes possibilidades de vitória, dependendo das escolhas feitas e dos itens encontrados.
+A história é dividida em **7 dias**, com diferentes rotas, cenas, escolhas, finais de derrota e finais de vitória. Cada escolha pode alterar os status do personagem, adicionar itens ao inventário, aumentar a pontuação, liberar novas possibilidades ou levar a uma morte imediata.
+
+---
 
 ## Objetivo do jogador
 
-O objetivo principal é **sobreviver por 7 dias** e chegar a um dos finais de vitória.
+O objetivo principal é **sobreviver até o Dia 7** e alcançar um dos finais de vitória.
 
 Para isso, o jogador precisa:
 
@@ -39,24 +36,29 @@ Para isso, o jogador precisa:
 - administrar recursos como comida, água, energia e munição;
 - coletar itens importantes;
 - evitar escolhas perigosas;
-- tentar chegar ao final da história com a maior pontuação possível.
+- chegar ao fim da história com a maior pontuação possível;
+- salvar ou abandonar personagens conforme as consequências das escolhas.
+
+---
 
 ## Regras do jogo
 
 - O jogo é single player.
 - O jogador controla um único personagem sobrevivente.
 - A história é dividida em 7 dias.
-- Cada cena pode apresentar uma ou mais opções de escolha.
+- Cada cena apresenta uma situação narrativa.
+- Algumas cenas possuem opções de escolha.
 - O jogador pode selecionar escolhas com o mouse ou com as teclas numéricas.
-- Cada escolha pode alterar os status do personagem.
-- Algumas escolhas podem adicionar itens ao inventário.
-- Algumas escolhas exigem itens específicos para serem liberadas.
-- Escolhas boas aumentam a pontuação.
-- Escolhas médias também pontuam, mas normalmente trazem menos vantagens.
-- Escolhas ruins podem causar perda de recursos, perda de vida ou derrota.
+- Algumas escolhas alteram os status do personagem.
+- Algumas escolhas adicionam itens ao inventário.
+- Algumas escolhas podem exigir itens específicos.
+- Escolhas seguras ou estratégicas aumentam a pontuação.
+- Escolhas arriscadas podem causar perda de recursos, perda de vida ou derrota.
 - Ao concluir um dia, o jogador recebe pontos extras.
-- O jogo termina quando o jogador chega a um final de vitória ou derrota.
-- A pontuação final é salva automaticamente no arquivo `pontuacoes.txt`.
+- O jogo termina ao alcançar um final de vitória ou um final de derrota.
+- A pontuação final é salva automaticamente no arquivo de ranking.
+
+---
 
 ## Sistemas implementados
 
@@ -69,38 +71,79 @@ O jogo possui os seguintes status:
 - **Comida**: representa os alimentos disponíveis.
 - **Água**: representa a quantidade de água disponível.
 - **Moral**: representa o estado emocional do personagem.
-- **Confiança**: representa o nível de confiança conquistado com outros sobreviventes.
+- **Confiança**: representa a relação do personagem com outros sobreviventes.
 - **Munição**: representa a quantidade de tiros disponíveis.
+
+---
 
 ### Inventário
 
-O jogador pode receber itens durante a história, como:
+Durante a história, o jogador pode receber itens importantes, como:
 
-- faca;
 - mochila;
-- rádio;
+- canivete;
+- faca de caça;
+- barra de ferro;
 - pé de cabra;
-- aliados;
-- arma de fogo;
+- rádio;
+- lanterna;
+- corda;
+- kit médico;
+- combustível;
+- ferramentas;
+- peça do ônibus;
+- pistola;
 - munição;
-- soro sete;
-- sinalizadores;
-- rota subterrânea.
+- alimentos;
+- água;
+- aliados.
 
-Alguns itens desbloqueiam escolhas futuras. Por exemplo, determinadas ações só podem ser feitas se o jogador tiver o item necessário.
+Alguns itens podem desbloquear ações futuras ou representar vantagens narrativas durante a sobrevivência.
+
+---
+
+### Sistema de escolhas
+
+As escolhas são o principal elemento de interação do jogo.
+
+Cada opção pode:
+
+- levar para uma nova cena;
+- causar derrota imediata;
+- alterar status do personagem;
+- adicionar itens ao inventário;
+- modificar a pontuação;
+- influenciar o caminho da história;
+- levar a diferentes finais.
+
+---
 
 ### Pontuação
 
-O sistema de pontuação funciona da seguinte forma:
+O jogo possui um sistema de pontuação para avaliar o desempenho do jogador.
 
-- escolhas boas valem 75 pontos;
-- escolhas médias valem 50 pontos;
-- escolhas que levam à morte valem 0 pontos;
-- cada dia concluído adiciona 100 pontos.
+A pontuação pode ser alterada por:
+
+- cenas visitadas;
+- escolhas boas;
+- escolhas médias;
+- conclusão de dias;
+- finais alcançados;
+- decisões que mantêm o personagem vivo por mais tempo.
+
+O objetivo não é apenas sobreviver, mas também tentar alcançar a melhor pontuação possível.
+
+---
 
 ### Ranking
 
-Ao vencer ou perder, o jogo salva automaticamente os dados da partida no arquivo `pontuacoes.txt`.
+O jogo possui um sistema de ranking salvo em arquivo.
+
+Ao vencer ou perder, a partida é registrada automaticamente no arquivo:
+
+```text
+pontuacoes.txt
+```
 
 As informações salvas incluem:
 
@@ -108,28 +151,38 @@ As informações salvas incluem:
 - pontuação final;
 - quantidade de dias concluídos;
 - resultado da partida;
-- nome do final alcançado.
+- final alcançado.
 
 O ranking pode ser acessado dentro do jogo pela tecla **F1**.
+
+---
 
 ## Condições de vitória e derrota
 
 ### Vitória
 
-O jogador vence ao chegar ao 7º dia e escolher um dos finais de vitória disponíveis.
+O jogador vence ao chegar ao Dia 7 e alcançar um dos finais de sobrevivência.
 
-Existem diferentes finais de vitória, como:
+Os finais de vitória variam de acordo com a rota escolhida e com as decisões tomadas ao longo da história. O jogador pode terminar a jornada chegando a locais de evacuação, entrando em zonas seguras ou sobrevivendo por meio de diferentes estratégias.
 
-- entrar no navio de evacuação;
-- entregar o Soro Sete aos cientistas;
-- salvar sobreviventes fora do portão;
-- usar a rota subterrânea para começar de novo.
+---
 
 ### Derrota
 
-O jogador perde quando toma uma decisão fatal ou quando a vida chega a zero.
+O jogador perde quando:
 
-Existem várias situações de derrota ao longo da história, como ataques de zumbis, decisões arriscadas, armadilhas, barulhos que atraem hordas e escolhas sem os recursos necessários.
+- toma uma decisão fatal;
+- entra em uma situação sem preparo;
+- é atacado por infectados;
+- cai em armadilhas;
+- é morto por saqueadores;
+- provoca barulho em momentos perigosos;
+- fica sem condições de sobreviver;
+- a vida chega a zero.
+
+Existem várias mortes possíveis durante os 7 dias de história.
+
+---
 
 ## Controles
 
@@ -139,8 +192,43 @@ Existem várias situações de derrota ao longo da história, como ataques de zu
 - **Espaço**: continuar cenas sem escolha.
 - **F1**: abrir ou fechar o ranking.
 - **Backspace**: voltar da tela de ranking ou apagar o nome na tela inicial.
-- **R**: reiniciar após uma derrota.
+- **R**: reiniciar após uma vitória ou derrota.
 - **ESC**: sair do jogo.
+
+---
+
+## Estrutura do projeto
+
+```text
+Seven-Days-of-Fear/
+│
+├── main.py
+├── requirements.txt
+├── pontuacoes.txt
+├── README.md
+│
+├── assets/
+│   └── imagens/
+│
+├── docs/
+│   └── proposta.md
+│
+└── test_jogo_semana3.py
+```
+
+---
+
+## Arquivos principais
+
+- `main.py`: arquivo principal do jogo. É por ele que o jogo deve ser executado.
+- `requirements.txt`: lista de dependências necessárias para executar o projeto.
+- `pontuacoes.txt`: arquivo usado para salvar o ranking dos jogadores.
+- `README.md`: documentação principal do projeto.
+- `docs/proposta.md`: proposta inicial do jogo.
+- `test_jogo_semana3.py`: arquivo com testes automatizados.
+- `assets/imagens/`: pasta onde ficam as imagens utilizadas nas cenas.
+
+---
 
 ## Como executar o projeto
 
@@ -160,9 +248,11 @@ Depois, execute:
 python main.py
 ```
 
+---
+
 ## Como executar os testes
 
-O projeto possui uma primeira versão de testes automatizados usando `pytest`.
+O projeto possui testes automatizados usando `pytest`.
 
 Para executar os testes, use:
 
@@ -170,45 +260,104 @@ Para executar os testes, use:
 python -m pytest test_jogo_semana3.py
 ```
 
-Os testes verificam partes importantes do jogo, como:
+Os testes verificam partes importantes do projeto, como:
 
 - limites dos status;
-- pontuação das escolhas;
-- existência dos 7 dias;
+- funcionamento da pontuação;
+- existência dos dias da história;
 - existência de finais de vitória e derrota;
-- bloqueio de escolhas por item necessário;
-- leitura e ordenação do ranking.
+- estrutura das cenas;
+- leitura e ordenação do ranking;
+- funcionamento de regras principais do jogo.
+
+---
 
 ## Como adicionar imagens
 
-As imagens devem ser colocadas na pasta `assets`.
-
-O jogo procura automaticamente uma imagem com o mesmo nome da chave da cena. Por exemplo:
+As imagens das cenas devem ser colocadas na pasta:
 
 ```text
-d1_apartamento -> assets/d1_apartamento.png
+assets/imagens/
+```
+
+O jogo procura automaticamente uma imagem com o mesmo nome da chave da cena.
+
+Exemplo:
+
+```text
+inicio -> assets/imagens/inicio.png
+d1_r1_c1 -> assets/imagens/d1_r1_c1.png
+d2_r3_c5 -> assets/imagens/d2_r3_c5.png
 ```
 
 Também é possível indicar manualmente uma imagem dentro do dicionário da cena usando o campo `imagem`.
 
-Caso a imagem não exista, o jogo mostra um espaço reservado na tela informando o caminho esperado do arquivo.
+Exemplo:
 
-## Checklist da Semana 3
+```python
+'imagem': 'assets/imagens/minha_imagem.png'
+```
 
-- Janela do Pygame funcionando.
-- Loop principal implementado.
-- Sistema de escolhas por mouse e teclado.
-- História dividida em 7 dias.
-- Sistema de vida, energia, comida, água, moral, confiança e munição.
-- Sistema de pontuação.
-- Sistema de progresso por dias.
-- Condições de vitória e derrota.
-- Uso de estruturas de dados, como dicionários, listas e conjuntos.
-- Escrita de dados em arquivo com `pontuacoes.txt`.
-- Leitura do arquivo de pontuações para exibir ranking.
-- Primeira versão dos testes com `pytest`.
-- README atualizado com informações do jogo.
+Caso a imagem não exista, o jogo exibe um espaço reservado na tela.
+
+---
+
+## Recursos utilizados
+
+O projeto utiliza:
+
+- linguagem Python;
+- biblioteca Pygame;
+- arquivos de texto para persistência do ranking;
+- imagens armazenadas na pasta `assets/imagens`;
+- estruturas de dados como dicionários, listas e conjuntos;
+- testes automatizados com pytest.
+
+As referências para imagens, sons, fontes ou qualquer outro asset externo utilizado devem ser registradas na documentação do projeto ou em arquivo próprio dentro da pasta `docs/`.
+
+---
+
+## Checklist da entrega final - Semana 4
+
+- [x] Jogo completo e executável.
+- [x] Código-fonte organizado.
+- [x] README preenchido.
+- [x] Proposta inicial no arquivo `docs/proposta.md`.
+- [x] Testes implementados.
+- [x] Arquivos auxiliares necessários incluídos.
+- [x] Sistema de ranking com leitura e escrita em arquivo.
+- [x] Sistema de pontuação.
+- [x] Sistema de status do jogador.
+- [x] Sistema de inventário.
+- [x] Condições de vitória e derrota.
+- [x] História completa com 7 dias.
+- [x] Suporte a imagens nas cenas.
+- [x] Referências de assets externos previstas na documentação.
+- [x] Projeto pronto para apresentação em sala.
+
+---
+
+## Conceitos da disciplina aplicados
+
+Durante o desenvolvimento do jogo, foram aplicados conceitos trabalhados na disciplina, como:
+
+- variáveis;
+- condicionais;
+- laços de repetição;
+- funções;
+- listas;
+- dicionários;
+- conjuntos;
+- manipulação de arquivos;
+- modularização;
+- tratamento de eventos;
+- testes automatizados;
+- organização de projeto.
+
+---
 
 ## Observações finais
 
-Este projeto foi desenvolvido como uma versão quase completa do jogo para a entrega da Semana 3. A estrutura atual já permite jogar do início ao fim, salvar pontuações, visualizar ranking, testar regras principais e expandir o jogo com novas imagens, cenas e melhorias futuras.
+**Seven Days of Fear** foi desenvolvido como projeto final da disciplina, com foco em narrativa interativa, tomada de decisões, controle de recursos e múltiplas possibilidades de encerramento.
+
+A versão final permite jogar do início ao fim, visualizar status do personagem, realizar escolhas, acumular pontuação, salvar o ranking, acessar diferentes rotas e chegar a finais de vitória ou derrota conforme as decisões tomadas pelo jogador.
