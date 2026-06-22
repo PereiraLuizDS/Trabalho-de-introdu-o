@@ -1,22 +1,27 @@
+"""Funções auxiliares de regra, pontuação, inventário e ranking."""
+
 import os
 
 from .dados import (
+    MAX_RANKING,
     PONTOS_ESCOLHA_BOA,
     PONTOS_ESCOLHA_MEDIA,
     PONTOS_MORTE,
-    MAX_RANKING,
 )
 
 
+QUALIDADES_VALIDAS = {"boa", "media", "morte"}
+
+
 def qualidade_automatica(opcao):
-    """Classifica automaticamente uma escolha como boa, média ou morte."""
+    """Classifica uma escolha como boa, média ou morte."""
     final = opcao.get("final")
 
     if final and final.get("tipo") == "derrota":
         return "morte"
 
     qualidade = opcao.get("qualidade")
-    if qualidade in ("boa", "media", "morte"):
+    if qualidade in QUALIDADES_VALIDAS:
         return qualidade
 
     if final and final.get("tipo") == "vitoria":
@@ -64,7 +69,7 @@ def limitar_status(nome, valor):
 
 
 def aplicar_efeitos(estado, efeitos=None):
-    """Aplica alterações de status no jogador."""
+    """Aplica alterações de status no jogador e devolve o próprio estado."""
     if not efeitos:
         return estado
 
@@ -97,35 +102,39 @@ def alterar_municao(estado, delta=0):
     return estado
 
 
-def descrever_requisitos(opcao):
-    """Monta um texto com os requisitos de uma escolha."""
-    requisitos = []
-    requer_item = opcao.get("requer_item")
+def normalizar_lista_requisitos(requer_item):
+    """Transforma requisitos de item em uma lista padronizada."""
+    if not requer_item:
+        return []
 
     if isinstance(requer_item, str):
-        requisitos.append(requer_item)
+        return [requer_item]
 
-    elif isinstance(requer_item, (list, tuple, set)):
-        requisitos.extend(str(item) for item in requer_item)
+    if isinstance(requer_item, (list, tuple, set)):
+        return [str(item) for item in requer_item]
+
+    return [str(requer_item)]
+
+
+def descrever_requisitos(opcao):
+    """Monta um texto com os requisitos de uma escolha."""
+    requisitos = normalizar_lista_requisitos(opcao.get("requer_item"))
 
     municao_minima = opcao.get("municao_minima", 0)
     if municao_minima:
-        requisitos.append(f"{municao_minima} municao")
+        requisitos.append(f"{municao_minima} munição")
 
     return ", ".join(requisitos)
 
 
-def opcao_disponivel(opcao, itens, estado):
+def opcao_disponivel(opcao, itens=None, estado=None):
     """Verifica se o jogador possui os itens ou recursos exigidos por uma escolha."""
-    requer_item = opcao.get("requer_item")
+    itens = itens or []
+    estado = estado or {}
 
-    if isinstance(requer_item, str) and requer_item not in itens:
-        return False
-
-    if isinstance(requer_item, (list, tuple, set)):
-        for item in requer_item:
-            if item not in itens:
-                return False
+    for item in normalizar_lista_requisitos(opcao.get("requer_item")):
+        if item not in itens:
+            return False
 
     municao_minima = opcao.get("municao_minima", 0)
     if municao_minima and estado.get("municao", 0) < municao_minima:
@@ -135,20 +144,30 @@ def opcao_disponivel(opcao, itens, estado):
 
 
 def caminho_arquivo_pontuacoes(nome_arquivo, arquivo_base):
-    """Retorna o caminho do arquivo de ranking."""
+    """Retorna o caminho absoluto do arquivo de ranking."""
     pasta = os.path.dirname(os.path.abspath(arquivo_base))
     return os.path.join(pasta, nome_arquivo)
 
 
-def extrair_valor_ranking(parte, chave, padrao=""):
+def extrair_valor_ranking(linha, chave, padrao=""):
     """Extrai valores de uma linha do arquivo pontuacoes.txt."""
     prefixo = chave + ":"
 
-    for pedaco in parte.split("|"):
+    for pedaco in linha.split("|"):
         pedaco = pedaco.strip()
 
         if pedaco.startswith(prefixo):
             return pedaco[len(prefixo):].strip()
+
+    return padrao
+
+
+def _extrair_primeiro_valor(linha, chaves, padrao=""):
+    """Tenta extrair um valor usando diferentes nomes de chave."""
+    for chave in chaves:
+        valor = extrair_valor_ranking(linha, chave, "")
+        if valor != "":
+            return valor
 
     return padrao
 
@@ -165,15 +184,15 @@ def ler_pontuacoes(caminho, maximo=MAX_RANKING):
             linhas = arquivo.readlines()
 
     except OSError as erro:
-        print(f"Nao foi possivel ler o ranking: {erro}")
+        print(f"Não foi possível ler o ranking: {erro}")
         return ranking
 
     for linha in linhas:
-        nome = extrair_valor_ranking(linha, "Nome", "Sobrevivente")
-        pontuacao_texto = extrair_valor_ranking(linha, "Pontuacao", "0")
-        dias_texto = extrair_valor_ranking(linha, "Dias concluidos", "0")
-        resultado = extrair_valor_ranking(linha, "Resultado", "final")
-        final = extrair_valor_ranking(linha, "Final", "Final desconhecido")
+        nome = _extrair_primeiro_valor(linha, ["Nome"], "Sobrevivente")
+        pontuacao_texto = _extrair_primeiro_valor(linha, ["Pontuacao", "Pontuação"], "0")
+        dias_texto = _extrair_primeiro_valor(linha, ["Dias concluidos", "Dias concluídos"], "0")
+        resultado = _extrair_primeiro_valor(linha, ["Resultado"], "final")
+        final = _extrair_primeiro_valor(linha, ["Final"], "Final desconhecido")
 
         try:
             valor_pontuacao = int(pontuacao_texto)
@@ -200,6 +219,10 @@ def ler_pontuacoes(caminho, maximo=MAX_RANKING):
 
 def salvar_pontuacao_final(caminho, nome, pontuacao, dias_concluidos, tipo_final, titulo_final):
     """Salva a pontuação final no arquivo de ranking."""
+    pasta = os.path.dirname(os.path.abspath(caminho))
+    if pasta:
+        os.makedirs(pasta, exist_ok=True)
+
     linha = (
         f"Nome: {nome} | "
         f"Pontuacao: {pontuacao} | "
@@ -215,5 +238,5 @@ def salvar_pontuacao_final(caminho, nome, pontuacao, dias_concluidos, tipo_final
         return True
 
     except OSError as erro:
-        print(f"Nao foi possivel salvar a pontuacao: {erro}")
+        print(f"Não foi possível salvar a pontuação: {erro}")
         return False
