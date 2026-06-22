@@ -1,104 +1,138 @@
 # Proposta Inicial do Jogo
 
-Este documento apresenta a proposta inicial do jogo desenvolvido pelo grupo para a disciplina de Introdução a Algoritmos/Programação.
+Este documento apresenta a proposta inicial do jogo **Seven Days of Fear**, desenvolvido como projeto final da disciplina de Introdução a Algoritmos/Programação.
 
-A ideia do projeto é criar um jogo simples, claro e viável utilizando Python e Pygame, aplicando conceitos como estruturas condicionais, funções, listas, dicionários, leitura e escrita de arquivos, pontuação e testes.
+A proposta foi organizada para orientar o desenvolvimento do jogo e registrar os principais elementos planejados: tema, objetivo, regras, controles, recursos, estrutura do código, formas de pontuação, ranking, testes e critérios mínimos para a entrega final.
+
+---
 
 ## 1. Nome do jogo
 
 **Seven Days of Fear**
 
-Nome provisório inicial: **Dy 7 Survival**
+Nome provisório utilizado no início do projeto: **Day 7 Survival**.
+
+---
 
 ## 2. Integrantes do grupo
 
-- Luiz Otávio Pereira Dos Santos
+- Luiz Otávio Pereira dos Santos
 - Iago Paiva Faria
 - Gustavo Eugênio Ferreira
 - Luanna Rodrigues Campos
 
+---
+
 ## 3. Tipo de jogo
 
-Jogo narrativo de sobrevivência por escolhas, no modo single player.
+Jogo narrativo de sobrevivência por escolhas, no modo **single player**, desenvolvido em **Python** com uso da biblioteca **Pygame**.
+
+---
 
 ## 4. Descrição geral do jogo
 
-O jogo é ambientado em uma cidade tomada por zumbis. O jogador controla um sobrevivente que começa sozinho em uma área urbana abandonada e precisa tomar decisões para continuar vivo durante 7 dias.
+**Seven Days of Fear** é ambientado em uma cidade tomada por um apocalipse zumbi. O jogador controla um sobrevivente que acorda sozinho em um apartamento enquanto a cidade entra em colapso.
 
-A cada cena, uma situação é apresentada na tela. Essas situações podem envolver procurar comida, explorar locais abandonados, fugir de zumbis, descansar, buscar munição, encontrar aliados ou escolher caminhos pela cidade.
+A partir da primeira cena, o jogador precisa tomar decisões para sobreviver durante 7 dias. Cada escolha pode mudar o rumo da história, alterar os status do personagem, adicionar itens ao inventário, aumentar a pontuação, abrir novos caminhos ou causar uma derrota imediata.
 
-O jogador deve escolher entre as opções disponíveis. Cada escolha gera consequências nos atributos do personagem, como vida, energia, comida, água, moral, confiança, munição, itens e pontuação.
+As situações do jogo envolvem fugir de infectados, procurar comida e água, explorar locais abandonados, ajudar ou abandonar sobreviventes, enfrentar saqueadores, encontrar rotas de evacuação e tentar alcançar um final de sobrevivência.
 
-O jogo possui múltiplos caminhos narrativos, finais de vitória e finais de derrota. As escolhas feitas pelo jogador influenciam diretamente o progresso e o resultado da partida.
+O jogo possui múltiplos caminhos narrativos, finais de derrota e finais de vitória. As escolhas feitas pelo jogador influenciam diretamente o progresso, a pontuação e o resultado final da partida.
+
+---
 
 ## 5. Objetivo do jogador
 
-O objetivo do jogador é sobreviver durante 7 dias em uma cidade dominada por zumbis, administrando seus recursos e evitando situações perigosas.
+O objetivo principal é **sobreviver até o Dia 7** e alcançar um dos finais de vitória disponíveis.
 
-Para vencer, o jogador precisa chegar ao final do 7º dia e escolher uma rota de sobrevivência possível, como evacuação, cura, salvamento de sobreviventes ou fuga por uma rota alternativa.
+Para vencer, o jogador precisa:
+
+- administrar recursos limitados;
+- manter a vida acima de zero;
+- tomar decisões estratégicas;
+- evitar escolhas fatais;
+- coletar itens importantes;
+- lidar com outros sobreviventes;
+- chegar a uma rota segura de sobrevivência.
+
+Além de sobreviver, o jogador também pode tentar alcançar a maior pontuação possível.
+
+---
 
 ## 6. Regras principais
 
 - O jogo é single player.
 - O jogador controla um único sobrevivente.
-- O jogador começa com valores iniciais de vida, energia, comida, água, moral, confiança, munição e pontuação.
-- A cada cena, uma situação é apresentada.
-- O jogador escolhe uma opção usando o mouse ou o teclado.
-- Algumas cenas possuem até 4 opções.
-- Cada escolha pode alterar os atributos do jogador.
+- O jogador informa o nome no início da partida.
+- A história é dividida em 7 dias.
+- Cada cena apresenta uma situação narrativa.
+- Algumas cenas possuem opções de escolha.
+- O jogador pode escolher usando o mouse ou as teclas numéricas.
+- Algumas cenas avançam com Enter ou Espaço.
+- Cada escolha pode alterar os status do jogador.
 - Algumas escolhas adicionam itens ao inventário.
-- Algumas escolhas exigem itens específicos para serem usadas.
-- Escolhas boas aumentam a pontuação ou melhoram a situação do jogador.
-- Escolhas médias permitem progresso, mas podem gastar recursos.
-- Escolhas ruins podem causar perda de vida, recursos ou derrota imediata.
-- A pontuação aumenta conforme o jogador faz escolhas e conclui dias.
-- O jogo avança conforme o jogador sobrevive aos eventos.
+- Algumas escolhas podem exigir itens específicos.
+- Escolhas boas ou estratégicas aumentam a pontuação.
+- Escolhas médias permitem o progresso, mas podem gastar recursos.
+- Escolhas ruins podem causar perda de recursos, perda de vida ou derrota imediata.
+- A pontuação aumenta conforme o jogador visita cenas, faz escolhas e conclui dias.
+- O ranking é salvo automaticamente ao final da partida.
 - O jogador perde se chegar a uma cena de morte ou se a vida chegar a zero.
-- O jogador vence se alcançar um dos finais de vitória no 7º dia.
-- Ao final da partida, a pontuação é salva em arquivo.
+- O jogador vence se alcançar um dos finais positivos no Dia 7.
 
-## 7. Condição de vitória
+---
 
-O jogador vence se chegar ao 7º dia e concluir um dos finais positivos disponíveis.
+## 7. Condições de vitória
 
-Os finais de vitória incluem possibilidades como:
+O jogador vence ao chegar ao Dia 7 e concluir uma rota positiva de sobrevivência.
 
-- Entrar no navio de evacuação.
-- Entregar o Soro Sete aos cientistas.
-- Salvar sobreviventes fora do portão.
-- Usar uma rota subterrânea para escapar da cidade.
+Os finais de vitória podem envolver:
 
-## 8. Condição de derrota ou encerramento
+- alcançar uma zona segura;
+- passar por uma triagem militar;
+- chegar a um ponto de evacuação;
+- escapar com um grupo de sobreviventes;
+- sobreviver por uma rota alternativa.
+
+---
+
+## 8. Condições de derrota ou encerramento
 
 O jogador perde se:
 
-- Escolher uma opção fatal.
-- Ficar sem vida.
-- Ser cercado por zumbis.
-- Cair em armadilhas.
-- Tomar decisões que levem a finais de morte.
+- escolher uma opção fatal;
+- ficar sem vida;
+- ser cercado por infectados;
+- cair em armadilhas;
+- ser morto por saqueadores;
+- provocar barulho em locais perigosos;
+- entrar em situações sem os recursos necessários.
 
 A partida também é encerrada quando o jogador alcança qualquer final, seja de vitória ou derrota.
 
-## 9. Elementos previstos no jogo
+---
+
+## 9. Elementos do jogo
 
 ### Personagem principal
 
-O jogador controla um sobrevivente chamado Rafael. O nome do personagem pode ser personalizado na tela inicial.
+O jogador controla um sobrevivente cujo nome pode ser informado na tela inicial.
 
 ### Cenário principal
 
-O jogo se passa em uma cidade abandonada durante um apocalipse zumbi.
+O jogo se passa em uma cidade urbana durante um apocalipse zumbi.
 
 ### Ameaças e desafios
 
-- Zumbis.
+- Infectados.
 - Hordas.
-- Falta de recursos.
+- Falta de comida e água.
+- Cansaço.
 - Ferimentos.
-- Escolhas perigosas.
-- Sobreviventes hostis.
-- Ambientes arriscados, como hospital, delegacia, metrô, túneis e ponte quebrada.
+- Decisões perigosas.
+- Saqueadores.
+- Sobreviventes desesperados.
+- Ambientes instáveis, como prédios, garagens, terminais, escolas, rodovias, pontes e bases militares.
 
 ### Recursos e atributos do jogador
 
@@ -117,45 +151,55 @@ O jogo se passa em uma cidade abandonada durante um apocalipse zumbi.
 
 O jogador pode encontrar itens durante a história, como:
 
-- Faca.
-- Mochila.
-- Rádio.
-- Pé de cabra.
-- Mapa.
-- Curativos.
-- Antibióticos.
-- Arma de fogo.
-- Munição.
-- Soro Sete.
-- Sinalizadores.
-- Rota subterrânea.
+- mochila;
+- canivete;
+- faca de caça;
+- barra de ferro;
+- rádio;
+- lanterna;
+- corda;
+- kit médico;
+- pé de cabra;
+- combustível;
+- ferramentas;
+- peça de veículo;
+- pistola;
+- munição;
+- alimentos;
+- água;
+- aliados.
 
-Alguns itens desbloqueiam escolhas específicas em cenas futuras.
+Alguns itens podem desbloquear escolhas futuras ou representar vantagens narrativas durante a sobrevivência.
 
-### Locais da cidade
+---
 
-O jogo possui vários locais, como:
+## 10. Locais previstos
 
-- Apartamento.
-- Telhado.
-- Garagem.
-- Mercado.
-- Escola.
-- Farmácia.
-- Becos.
-- Torre de rádio.
-- Shopping.
-- Delegacia.
-- Laboratório.
-- Metrô.
-- Ponte.
-- Bairro militar.
-- Túneis.
-- Porto.
+O jogo possui cenas ambientadas em diferentes locais, como:
 
-### Telas previstas
+- apartamento;
+- corredor do prédio;
+- escada de emergência;
+- beco;
+- rua principal;
+- garagem;
+- loja;
+- terminal de ônibus;
+- escola;
+- posto de gasolina;
+- rodovia;
+- ponte;
+- fazenda;
+- estacionamento;
+- base militar;
+- estádio;
+- pontos de evacuação.
 
-- Tela inicial para inserir nome do jogador.
+---
+
+## 11. Telas previstas
+
+- Tela inicial para inserir o nome do jogador.
 - Tela principal com cena, imagem, texto, opções e status.
 - Tela de consequência após escolhas.
 - Tela de fim de dia.
@@ -163,25 +207,31 @@ O jogo possui vários locais, como:
 - Tela de derrota.
 - Tela de ranking.
 
-## 10. Controles previstos
+---
 
-- Mouse: clicar nos botões de escolha.
-- Teclas 1 a 4: selecionar uma opção.
-- Enter ou Espaço: continuar em cenas sem escolhas.
-- F1: abrir o ranking.
-- R: reiniciar após derrota.
-- ESC: sair do jogo.
+## 12. Controles previstos
 
-## 11. Organização inicial do código
+- **Mouse**: clicar nos botões de escolha.
+- **Teclas 1 a 4**: selecionar uma opção.
+- **Enter**: continuar cenas sem escolha.
+- **Espaço**: continuar cenas sem escolha.
+- **F1**: abrir ou fechar o ranking.
+- **Backspace**: apagar o nome na tela inicial ou voltar da tela de ranking.
+- **R**: reiniciar após uma vitória ou derrota.
+- **ESC**: sair do jogo.
 
-O projeto utiliza estruturas de dados como dicionários, listas e conjuntos.
+---
+
+## 13. Organização do código
+
+O projeto utiliza estruturas de dados e funções para organizar a lógica do jogo.
 
 ### Estruturas utilizadas
 
 - Dicionários para representar cenas, opções, efeitos e status do jogador.
 - Listas para armazenar opções e itens coletados.
-- Conjuntos para registrar dias concluídos.
-- Funções para organizar regras, efeitos, pontuação, ranking, desenho da tela e controle do fluxo do jogo.
+- Conjuntos para registrar dias concluídos e cenas pontuadas.
+- Funções para organizar regras, efeitos, pontuação, ranking, desenho da tela e fluxo do jogo.
 - Arquivo `.txt` para salvar pontuações.
 
 ### Exemplo de estrutura do jogador
@@ -203,7 +253,7 @@ estado_inicial = {
 ```python
 "exemplo_cena": {
     "dia": 1,
-    "titulo": "Cena de exemplo",
+    "titulo": "DIA 1 - CENA DE EXEMPLO",
     "texto": "Descrição da situação apresentada ao jogador.",
     "opcoes": [
         {
@@ -211,13 +261,13 @@ estado_inicial = {
             "resultado": "Consequência da escolha.",
             "proxima": "proxima_cena",
             "efeitos": {"energia": -5, "moral": 2},
-            "itens_add": ["item exemplo"]
+            "itens_add": ["item exemplo"],
         }
-    ]
+    ],
 }
 ```
 
-### Funções previstas
+### Funções previstas/implementadas
 
 - Aplicar consequências das escolhas.
 - Atualizar status do jogador.
@@ -227,65 +277,120 @@ estado_inicial = {
 - Salvar pontuação final.
 - Ler ranking salvo.
 - Desenhar cenas, botões, textos, imagens e status.
+- Carregar imagens das cenas.
+- Controlar entrada por mouse e teclado.
 
-## 12. Recursos externos previstos
+---
 
-Recursos previstos:
+## 14. Persistência de dados
 
-- Imagens para representar as cenas do jogo.
-- Pasta `assets` para armazenar imagens.
-- Possíveis sons ou trilha sonora em versões futuras.
-- Fonte padrão do sistema ou fonte personalizada futuramente.
-- Arquivo `pontuacoes.txt` para salvar o ranking.
+O jogo utiliza arquivo de texto para registrar o ranking dos jogadores.
 
-### Fontes de imagens
+Arquivo utilizado:
 
-As imagens podem ser criadas ou obtidas de bancos gratuitos, respeitando os direitos de uso.
+```text
+ranking.txt
+```
 
-## 13. Principais dificuldades esperadas
+As informações salvas incluem:
 
-Dificuldades previstas:
+- nome do jogador;
+- pontuação final;
+- dias concluídos;
+- resultado da partida;
+- final alcançado.
 
-- Criar pesos e consequências equilibradas entre as escolhas.
-- Fazer a narrativa avançar de forma coerente durante os 7 dias.
-- Controlar atributos como vida, energia, comida, água, moral, confiança e munição.
+---
+
+## 15. Recursos externos e assets
+
+O projeto utiliza uma pasta de assets para armazenar imagens das cenas.
+
+Pasta principal:
+
+```text
+assets/imagens/
+```
+
+As imagens podem ser produzidas pelo próprio grupo, geradas especificamente para o projeto ou obtidas de fontes externas gratuitas, desde que respeitem os direitos de uso.
+
+Caso sejam utilizados recursos externos, como imagens, sons ou fontes de terceiros, suas referências devem ser registradas na documentação do projeto.
+
+---
+
+## 16. Testes previstos
+
+Os testes automatizados foram planejados para validar partes importantes da lógica do jogo sem abrir a janela do Pygame.
+
+Os testes verificam pontos como:
+
+- limites dos status;
+- pontuação das escolhas;
+- existência dos 7 dias;
+- existência de finais de vitória e derrota;
+- funcionamento de requisitos por item;
+- leitura e ordenação do ranking.
+
+---
+
+## 17. Principais dificuldades esperadas
+
+Dificuldades previstas durante o desenvolvimento:
+
+- Criar uma narrativa coerente durante 7 dias.
 - Organizar muitas cenas sem deixar o código confuso.
+- Equilibrar consequências entre escolhas boas, médias e ruins.
+- Controlar status como vida, energia, comida, água, moral, confiança e munição.
 - Implementar ranking com leitura e escrita em arquivo.
 - Criar testes simples sem abrir a janela do Pygame.
-- Adicionar imagens para todas as cenas do jogo.
+- Integrar imagens às cenas do jogo.
+- Preparar a documentação final para entrega.
 
-## 14. Escopo mínimo para a entrega final
+---
 
-Para a entrega final, o jogo deverá possuir no mínimo:
+## 18. Escopo mínimo para a entrega final
 
-- Janela principal feita em Pygame.
-- Modo single player.
-- Sistema de escolhas.
-- História com 7 dias de sobrevivência.
-- Tema de cidade tomada por zumbis.
-- Atributos principais do jogador.
-- Exibição dos status na tela.
-- Pontuação.
-- Itens coletáveis.
-- Condição de vitória.
-- Condição de derrota.
-- Uso de listas e dicionários.
-- Leitura ou escrita de dados em arquivo.
-- Ranking ou registro de pontuação.
-- Código organizado em funções.
-- README explicando o jogo e como executar.
-- Primeira versão dos testes.
+Para a entrega final, o jogo deverá possuir:
 
-## 15. Possíveis melhorias, caso haja tempo
+- janela principal feita em Pygame;
+- modo single player;
+- sistema de escolhas;
+- história com 7 dias de sobrevivência;
+- tema de cidade tomada por zumbis;
+- atributos principais do jogador;
+- exibição dos status na tela;
+- pontuação;
+- itens coletáveis;
+- condição de vitória;
+- condição de derrota;
+- uso de listas, dicionários e conjuntos;
+- leitura e escrita de dados em arquivo;
+- ranking ou registro de pontuação;
+- código organizado em funções;
+- README explicando o jogo e como executar;
+- testes automatizados;
+- referências para assets externos utilizados.
 
-Melhorias possíveis:
+---
 
-- Adicionar mais imagens para as cenas.
+## 19. Resultado esperado da versão final
+
+A versão final do projeto deve permitir que o jogador execute o jogo, informe seu nome, acompanhe a narrativa, tome decisões, veja seus status, colete itens, avance pelos dias, chegue a finais de vitória ou derrota e tenha sua pontuação registrada no ranking.
+
+O projeto também deve conter documentação suficiente para explicar a proposta, a organização dos arquivos, a execução do jogo, a execução dos testes e os recursos utilizados.
+
+---
+
+## 20. Possíveis melhorias futuras
+
+Melhorias possíveis após a entrega final:
+
+- Adicionar mais imagens para cenas específicas.
 - Adicionar trilha sonora e efeitos sonoros.
 - Criar animações simples.
-- Expandir a quantidade de escolhas e finais.
+- Expandir rotas e finais.
 - Melhorar a tela de ranking.
 - Criar sistema de dificuldade.
 - Adicionar mais itens com efeitos específicos.
-- Melhorar a modularização do código em arquivos separados.
-- Adicionar mais testes para as regras do jogo.
+- Aumentar a modularização do código.
+- Ampliar a cobertura dos testes automatizados.
